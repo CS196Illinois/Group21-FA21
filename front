@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html> 
+//potnetial<div>, have little idea about how to glorify the interface
+  <head>people detection</head>
+  <body>
+    <img src="some picture's address> alt="picture's name" usemap="xxx" style="pictures's data">
+    <img src="some picture's address> alt="picture's name" usemap="xxx" style="pictures's data">
+    //some pictures as background of the interface
+    //<don't know how to insert in time video yet,>
+    //some real-time variable of number of people in the camera
+  </body>
+</html>
+
+//still learning how to build interact interface with backend data and users' order, but may through following react language, which has feature of JSX and Virtual DOM that correspond to our project. 
+the front should contains some method of changing states of the web to accomplish real time update of numbe of people in the cambera and warning when number is beyond the setted number (which should can be set easily).
+*/ 
+//model render() method which return html that control the web interface; such code can be runed in react, I have no idea how it should be used in real web development yet
+import React from 'react';
+
+class Greet extends React.Component {
+	
+	constructor(props){
+		super(props);
+		
+		this.state = {val: "awesome"};
+	}
+	
+	
+	changeValue = () => {
+		this.setState(
+			{val: "wonderful"}
+			);
+		}
+	
+	render(){
+		return(
+			<div>
+				<h1>Hello {this.state.val} World</h1>
+				<button type="button" onClick={this.changeValue}>Change value</button>
+			</div>
+		);
+	}
+}
+
+
+export default Greet;
+/*
