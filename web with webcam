@@ -1,0 +1,81 @@
+<html>
+<head>
+	<title>Webcam Project Interface </title>
+	<meta name="viewport" content="width-device-width, initial-scale=1.0">
+	<meta name="keywards" content="cs196,webcam,machinelearning">
+	<meta name="descriptoin" content="using machine learning to detect number of people follows COVID-19 rules">
+	<meta charset="utf-8">
+	<title>Display Webcam Stream</title>
+ 
+	<style>
+		#container {
+			margin: 0px auto;
+			width: 500px;
+			height: 375px;
+			border: 10px #333 solid;
+		}
+		#videoElement {
+			width: 500px;
+			height: 375px;
+			background-color: #666;
+		}
+	</style>
+	<!--<meta http-equiv="refresh" content="10; http:xxxxxxxxxx">-->
+	<style>
+		h1 {text-align: center;
+		color: blue;
+		}
+		error {
+			background: orangered;
+			collor: #fff;
+			padding: 5px;
+			margin: 5px;
+		}
+	</style>
+</head>
+<body> 
+	<div id="container">
+		<video autoplay="true" id="videoElement">
+		
+		</video>
+	</div>
+	<script>
+		var video = document.querySelector("#videoElement");
+		if (navigator.mediaDevices.getUserMedia) {
+		  navigator.mediaDevices.getUserMedia({ video: true })
+			.then(function (stream) {
+			  video.srcObject = stream;
+			})
+			.catch(function (err0r) {
+			  console.log("Something went wrong!");
+			});
+		}
+	</script>
+	<h1>Webcam Project Based On Machine Learning</h1>
+	<h2>Group members: chengw4, salsh2, kasyeda2, ananyab3, cw72, hs38</h2>
+	<p>Our project is web-based people detection through monitors in rooms such as lecture halls, to detect the number of people in a room to makes sure that the capacity follows COVID-19 guidelines and warn if not. Our current focus is using machine learning to train a model that detects people in the camera. In addition, we are creating web interface to connect the front-end and back-end for easily access. In the future, we may further train our model to recognize if people are wearing face masks and maintain social distance. </p>
+	<form id='myform' action="welcom.php" method="post">
+	<div class='msg'></div>
+		building: <input type="text" id="building">
+		room:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="number" id="roomnumber">
+		<button type="submit">access</button>
+		<button type="reset">reset</button>
+	</form>
+	<script>
+		const inputBuilding = document.querySelector('#building');
+		const inputRoom = document.querySelector('#roomnumber');
+		const myform = document.querySelector('#myform');
+		const msg = document.querySelector('msg');
+		myform.addEventListener('submit', onSubmit);
+		function onSubmit(e) {
+			e.preventDefault();
+			if(inputBuilding === null || inputRoom === NaN) {
+				msg.classList.add('error');
+				msg.innerHTML = 'Please enter all fields';
+			} else {
+				console.log('success');
+			}
+		}
+	</script>
+</body>
+</html>
